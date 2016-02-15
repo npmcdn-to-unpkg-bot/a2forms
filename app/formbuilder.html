@@ -1,0 +1,25 @@
+<form [ngFormModel]="studentForm" class="form-horizontal" id='myForm' role="form"> 
+
+
+    <div class="col-md-7"> 
+
+       Name: <input ngControl="name" #name="ngForm" [(ngModel)]="student.name" type="text" placeholder="Name" class="form-control"> 
+
+       <span [hidden]="name.valid"><b>Required</b></span> 
+
+    </div> 
+
+    <div class="col-md-7"> 
+
+       Password: <input ngControl="password" #password="ngForm" [(ngModel)]="student.password" type="text" id="password" placeholder="password" class="form-control"> 
+
+       <span [hidden]="!password?.errors?.required"><b>Required</b></span> 
+
+       <span [hidden]="!password?.errors?.startsWithNumber"><b>Must start with number</b></span> 
+
+    </div> 
+
+
+</form> 
+
+<button type="button" (click)="addNewGroup(student)" class="btn btn-primary btn-lg" data-dismiss="modal">&nbsp;&nbsp;&nbsp; Create &nbsp;&nbsp;&nbsp;</button> 
