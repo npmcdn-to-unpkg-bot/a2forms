@@ -1,4 +1,4 @@
-System.register(['angular2/core', './formbuilder'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './formbuilder'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,12 +8,15 @@ System.register(['angular2/core', './formbuilder'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, formbuilder_1;
+    var core_1, router_1, formbuilder_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (formbuilder_1_1) {
                 formbuilder_1 = formbuilder_1_1;
@@ -25,9 +28,12 @@ System.register(['angular2/core', './formbuilder'], function(exports_1) {
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<div>fgfgjgf<form-builder></form-builder></div>',
-                        directives: [formbuilder_1.FormBuilderComponent]
-                    }), 
+                        templateUrl: '../app/app.html',
+                        directives: [router_1.ROUTER_DIRECTIVES]
+                    }),
+                    router_1.RouteConfig([
+                        { path: '/formbuilder', name: 'Formbuilder', component: formbuilder_1.FormBuilderComponent }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;
