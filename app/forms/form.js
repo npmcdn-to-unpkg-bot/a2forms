@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './defaultRouter', './child1', './child2'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './defaultForm', './formbuilder', './templateform'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +8,8 @@ System.register(['angular2/core', 'angular2/router', './defaultRouter', './child
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, defaultRouter_1, child1_1, child2_1;
-    var RouterComponent;
+    var core_1, router_1, defaultForm_1, formbuilder_1, templateform_1;
+    var FormComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -18,41 +18,37 @@ System.register(['angular2/core', 'angular2/router', './defaultRouter', './child
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (defaultRouter_1_1) {
-                defaultRouter_1 = defaultRouter_1_1;
+            function (defaultForm_1_1) {
+                defaultForm_1 = defaultForm_1_1;
             },
-            function (child1_1_1) {
-                child1_1 = child1_1_1;
+            function (formbuilder_1_1) {
+                formbuilder_1 = formbuilder_1_1;
             },
-            function (child2_1_1) {
-                child2_1 = child2_1_1;
+            function (templateform_1_1) {
+                templateform_1 = templateform_1_1;
             }],
         execute: function() {
-            RouterComponent = (function () {
-                function RouterComponent(_router) {
+            FormComponent = (function () {
+                function FormComponent(_router) {
                     this._router = _router;
                 }
-                RouterComponent.prototype.gotoChild1 = function () {
-                    this._router.navigate(['Child1']);
-                };
-                RouterComponent = __decorate([
+                FormComponent = __decorate([
                     core_1.Component({
                         selector: 'router',
-                        templateUrl: '../app/routers/router.html',
+                        templateUrl: '../app/forms/form.html',
                         directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', name: 'DefaultRouter', component: defaultRouter_1.DefaultRouterComponent, useAsDefault: true },
-                        { path: '/child1', name: 'Child1', component: child1_1.Child1Component },
-                        { path: '/child2', name: 'Child2', component: child2_1.Child2Component },
-                        { path: '/child2/:id', name: 'Child2WithParams', component: child2_1.Child2Component }
+                        { path: '/', name: 'DefaultForm', component: defaultForm_1.DefaultFormComponent, useAsDefault: true },
+                        { path: '/formbuilder', name: 'FormBuilder', component: formbuilder_1.FormBuilderComponent },
+                        { path: '/templateForm', name: 'TemplateForm', component: templateform_1.TemplateFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router])
-                ], RouterComponent);
-                return RouterComponent;
+                ], FormComponent);
+                return FormComponent;
             })();
-            exports_1("RouterComponent", RouterComponent);
+            exports_1("FormComponent", FormComponent);
         }
     }
 });
-//# sourceMappingURL=router.js.map
+//# sourceMappingURL=form.js.map

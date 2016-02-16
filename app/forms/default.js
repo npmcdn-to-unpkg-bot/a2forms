@@ -9,7 +9,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1;
-    var DefaultRouterComponent;
+    var DefaultFormComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -19,20 +19,19 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 router_1 = router_1_1;
             }],
         execute: function() {
-            DefaultRouterComponent = (function () {
-                function DefaultRouterComponent(_router) {
+            DefaultFormComponent = (function () {
+                function DefaultFormComponent(_router) {
                     this._router = _router;
                 }
-                DefaultRouterComponent = __decorate([
+                DefaultFormComponent = __decorate([
                     core_1.Component({
-                        templateUrl: '../app/routers/default.html',
-                        directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
+                        templateUrl: '../app/forms/default.html'
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
-                ], DefaultRouterComponent);
-                return DefaultRouterComponent;
+                ], DefaultFormComponent);
+                return DefaultFormComponent;
             })();
-            exports_1("DefaultRouterComponent", DefaultRouterComponent);
+            exports_1("DefaultFormComponent", DefaultFormComponent);
         }
     }
 });

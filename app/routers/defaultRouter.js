@@ -25,7 +25,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 }
                 DefaultRouterComponent = __decorate([
                     core_1.Component({
-                        templateUrl: '../app/routers/default.html',
+                        templateUrl: '../app/routers/defaultRouter.html',
                         directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router])
@@ -36,4 +36,4 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
         }
     }
 });
-//# sourceMappingURL=default.js.map
+//# sourceMappingURL=defaultRouter.js.map

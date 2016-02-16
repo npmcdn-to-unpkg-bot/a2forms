@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './defaultRouter', './child1', './child2'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './default', './child1', './child2'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './defaultRouter', './child
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, defaultRouter_1, child1_1, child2_1;
+    var core_1, router_1, default_1, child1_1, child2_1;
     var RouterComponent;
     return {
         setters:[
@@ -18,8 +18,8 @@ System.register(['angular2/core', 'angular2/router', './defaultRouter', './child
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (defaultRouter_1_1) {
-                defaultRouter_1 = defaultRouter_1_1;
+            function (default_1_1) {
+                default_1 = default_1_1;
             },
             function (child1_1_1) {
                 child1_1 = child1_1_1;
@@ -42,7 +42,7 @@ System.register(['angular2/core', 'angular2/router', './defaultRouter', './child
                         directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', name: 'DefaultRouter', component: defaultRouter_1.DefaultRouterComponent, useAsDefault: true },
+                        { path: '/', name: 'Default', component: default_1.DefaultComponent, useAsDefault: true },
                         { path: '/child1', name: 'Child1', component: child1_1.Child1Component },
                         { path: '/child2', name: 'Child2', component: child2_1.Child2Component },
                         { path: '/child2/:id', name: 'Child2WithParams', component: child2_1.Child2Component }

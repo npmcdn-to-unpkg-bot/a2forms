@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1) {
+System.register(['angular2/core', 'angular2/common'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,32 +8,32 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1;
-    var DefaultRouterComponent;
+    var core_1, common_1;
+    var TemplateFormComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
-            DefaultRouterComponent = (function () {
-                function DefaultRouterComponent(_router) {
-                    this._router = _router;
+            TemplateFormComponent = (function () {
+                function TemplateFormComponent() {
                 }
-                DefaultRouterComponent = __decorate([
+                TemplateFormComponent = __decorate([
                     core_1.Component({
-                        templateUrl: '../app/routers/default.html',
-                        directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
+                        selector: 'template-form',
+                        templateUrl: '../app/forms/templateform.html',
+                        directives: [common_1.CORE_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [router_1.Router])
-                ], DefaultRouterComponent);
-                return DefaultRouterComponent;
+                    __metadata('design:paramtypes', [])
+                ], TemplateFormComponent);
+                return TemplateFormComponent;
             })();
-            exports_1("DefaultRouterComponent", DefaultRouterComponent);
+            exports_1("TemplateFormComponent", TemplateFormComponent);
         }
     }
 });
-//# sourceMappingURL=default.js.map
+//# sourceMappingURL=templateform.js.map

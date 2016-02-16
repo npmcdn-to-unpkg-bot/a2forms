@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {FormBuilderComponent} from './forms/formbuilder';
+import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {FormComponent} from './forms/form';
 import {RouterComponent} from './routers/router';
 
 @Component({
@@ -10,7 +10,12 @@ import {RouterComponent} from './routers/router';
 })
 
 @RouteConfig([
-  { path:'/formbuilder', name: 'Formbuilder',component:FormBuilderComponent},   
+  { path:'/forms/...', name: 'Forms',component:FormComponent},   
   { path:'/router/...', name: 'Router',component:RouterComponent}
 ])
-export class AppComponent { }
+export class AppComponent {
+    currentRouter: string
+    constructor(private _router: Router){
+        _router.subscribe((url) => this.currentRouter = url);
+    }
+ }

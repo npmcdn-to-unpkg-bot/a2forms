@@ -1,6 +1,6 @@
 import {Component, Inject} from 'angular2/core'; 
 import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet} from 'angular2/router' 
-import {DefaultComponent} from './default';
+import {DefaultRouterComponent} from './defaultRouter';
 import {Child1Component} from './child1';  
 import {Child2Component} from './child2'; 
 
@@ -11,15 +11,19 @@ import {Child2Component} from './child2';
 }) 
 
 @RouteConfig([
-  { path: '/',name:'Default', component: DefaultComponent, useAsDefault:true },
-  { path: '/child1',name:'Child1', component: Child2Component}   ,
+  { path: '/',name:'DefaultRouter', component: DefaultRouterComponent, useAsDefault:true },
+  { path: '/child1',name:'Child1', component: Child1Component},
+  { path: '/child2',name:'Child2', component: Child2Component},
   { path: '/child2/:id',name:'Child2WithParams', component: Child2Component}
 ])
 
 
 export class RouterComponent {  
-    currentRouter: string
-    constructor(private _router:Router){
-             _router.subscribe((url) => this.currentRouter = url);
+   
+    constructor(private _router:Router){             
+    }
+    
+    gotoChild1(){        
+        this._router.navigate( ['Child1']  );  
     }
 }  

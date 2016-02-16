@@ -33,7 +33,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 };
                 Child2Component = __decorate([
                     core_1.Component({
-                        templateUrl: './child2.html',
+                        templateUrl: '../app/routers/child2.html',
                         directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams])
