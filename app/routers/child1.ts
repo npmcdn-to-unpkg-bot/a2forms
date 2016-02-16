@@ -1,5 +1,5 @@
 import {Component, Inject} from 'angular2/core';
-import {RouterOutlet, Router, RouteParams, RouteConfig,ComponentInstruction, CanDeactivate, ROUTER_DIRECTIVES} from 'angular2/router'
+import {RouterOutlet, Router, RouteParams, RouteConfig,ComponentInstruction, ROUTER_DIRECTIVES} from 'angular2/router'
 
 @Component({    
     templateUrl:'../app/routers/child1.html',  

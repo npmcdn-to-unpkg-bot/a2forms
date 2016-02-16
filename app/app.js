@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './forms/form', './routers/router'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './forms/form', './routers/router', './misc/misc'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './forms/form', './routers/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, form_1, router_2;
+    var core_1, router_1, form_1, router_2, misc_1;
     var AppComponent;
     return {
         setters:[
@@ -23,6 +23,9 @@ System.register(['angular2/core', 'angular2/router', './forms/form', './routers/
             },
             function (router_2_1) {
                 router_2 = router_2_1;
+            },
+            function (misc_1_1) {
+                misc_1 = misc_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -39,7 +42,8 @@ System.register(['angular2/core', 'angular2/router', './forms/form', './routers/
                     }),
                     router_1.RouteConfig([
                         { path: '/forms/...', name: 'Forms', component: form_1.FormComponent },
-                        { path: '/router/...', name: 'Router', component: router_2.RouterComponent }
+                        { path: '/router/...', name: 'Router', component: router_2.RouterComponent },
+                        { path: '/misc/...', name: 'Misc', component: misc_1.MiscComponent }
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router])
                 ], AppComponent);

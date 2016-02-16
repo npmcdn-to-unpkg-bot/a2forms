@@ -38,12 +38,23 @@ System.register(['angular2/core', 'angular2/common'], function(exports_1) {
             })();
             FormBuilderComponent = (function () {
                 function FormBuilderComponent(fb) {
+                    var _this = this;
+                    this._hasChanges = false;
                     this.student = new Student();
                     this.studentForm = fb.group({
                         'name': new common_1.Control(this.student.name, common_1.Validators.required),
                         'password': new common_1.Control(this.student.password, common_1.Validators.compose([common_1.Validators.required, PasswordValidator.startsWithNumber])),
                     });
+                    this.studentForm.valueChanges.subscribe(function (changes) {
+                        _this._hasChanges = true;
+                    });
                 }
+                FormBuilderComponent.prototype.routerCanDeactivate = function (next, prev) {
+                    if (this._hasChanges)
+                        return confirm('Are you sure you want to leave?');
+                    else
+                        return true;
+                };
                 FormBuilderComponent.prototype.addNewGroup = function (student) {
                     if (this.studentForm.valid) {
                         alert('added ' + student.name);
