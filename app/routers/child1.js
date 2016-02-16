@@ -20,14 +20,26 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
             }],
         execute: function() {
             Child1Component = (function () {
-                function Child1Component() {
+                function Child1Component(_router, _routeParams) {
+                    this._router = _router;
+                    this._routeParams = _routeParams;
+                    this.customerName = 'this is name';
                 }
+                Child1Component.prototype.childUpdated = function (value) {
+                    alert(value + ' is from child11');
+                };
+                Child1Component.prototype.gotochild2 = function () {
+                    this._router.navigate(['Child2']);
+                };
+                Child1Component.prototype.gotochild2WithParams = function () {
+                    this._router.navigate(['Child2', { id: 123 }]);
+                };
                 Child1Component = __decorate([
                     core_1.Component({
-                        templateUrl: './child1.html',
+                        templateUrl: '../app/routers/child1.html',
                         directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams])
                 ], Child1Component);
                 return Child1Component;
             })();

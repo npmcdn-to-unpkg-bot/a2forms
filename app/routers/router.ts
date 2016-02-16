@@ -1,5 +1,5 @@
 import {Component, Inject} from 'angular2/core'; 
-import {RouteConfig, ROUTER_DIRECTIVES, Location, Router} from 'angular2/router' 
+import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet} from 'angular2/router' 
 import {DefaultComponent} from './default';
 import {Child1Component} from './child1';  
 import {Child2Component} from './child2'; 
@@ -7,7 +7,7 @@ import {Child2Component} from './child2';
 @Component({ 
     selector: 'router', 
     templateUrl:'../app/routers/router.html', 
-    directives:[ROUTER_DIRECTIVES] 
+    directives:[ROUTER_DIRECTIVES, RouterOutlet] 
 }) 
 
 @RouteConfig([

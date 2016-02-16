@@ -20,14 +20,18 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
             }],
         execute: function() {
             DefaultComponent = (function () {
-                function DefaultComponent() {
+                function DefaultComponent(_router) {
+                    this._router = _router;
                 }
+                DefaultComponent.prototype.gotoChild1 = function () {
+                    this._router.navigate(['Child1']);
+                };
                 DefaultComponent = __decorate([
                     core_1.Component({
                         templateUrl: '../app/routers/default.html',
                         directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router])
                 ], DefaultComponent);
                 return DefaultComponent;
             })();

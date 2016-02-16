@@ -35,7 +35,7 @@ System.register(['angular2/core', 'angular2/router', './default', './child2'], f
                     core_1.Component({
                         selector: 'router',
                         templateUrl: '../app/routers/router.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet]
                     }),
                     router_1.RouteConfig([
                         { path: '/', name: 'Default', component: default_1.DefaultComponent, useAsDefault: true },

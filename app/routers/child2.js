@@ -20,14 +20,23 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
             }],
         execute: function() {
             Child2Component = (function () {
-                function Child2Component() {
+                function Child2Component(_router, _routeParams) {
+                    this._router = _router;
+                    this._routeParams = _routeParams;
                 }
+                //   routerCanDeactivate(next: ComponentInstruction, prev: ComponentInstruction) { 
+                //       return confirm('Are you sure you want to leave?'); 
+                //   } 
+                Child2Component.prototype.ngOnInit = function () {
+                    var q = this._routeParams.params["id"];
+                    this.paramValue = q ? q : 'no params...';
+                };
                 Child2Component = __decorate([
                     core_1.Component({
                         templateUrl: './child2.html',
                         directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [router_1.Router, router_1.RouteParams])
                 ], Child2Component);
                 return Child2Component;
             })();
