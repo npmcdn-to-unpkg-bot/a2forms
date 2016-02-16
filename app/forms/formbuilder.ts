@@ -25,7 +25,7 @@ class PasswordValidator {
 
 @Component({ 
  selector: 'form-builder', 
- templateUrl: '../app/formbuilder.html', 
+ templateUrl: '../app/forms/formbuilder.html', 
  directives: [CORE_DIRECTIVES, FORM_DIRECTIVES]  
 }) 
 

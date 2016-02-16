@@ -56,7 +56,7 @@ System.register(['angular2/core', 'angular2/common'], function(exports_1) {
                 FormBuilderComponent = __decorate([
                     core_1.Component({
                         selector: 'form-builder',
-                        templateUrl: '../app/formbuilder.html',
+                        templateUrl: '../app/forms/formbuilder.html',
                         directives: [common_1.CORE_DIRECTIVES, common_1.FORM_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [common_1.FormBuilder])

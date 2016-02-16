@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {FormBuilderComponent} from './formbuilder';
+import {FormBuilderComponent} from './forms/formbuilder';
+import {RouterComponent} from './routers/router';
 
 @Component({
     selector: 'my-app',
@@ -9,6 +10,7 @@ import {FormBuilderComponent} from './formbuilder';
 })
 
 @RouteConfig([
-  { path:'/formbuilder', name: 'Formbuilder',component:FormBuilderComponent}   
+  { path:'/formbuilder', name: 'Formbuilder',component:FormBuilderComponent},   
+  { path:'/router/...', name: 'Router',component:RouterComponent}
 ])
 export class AppComponent { }

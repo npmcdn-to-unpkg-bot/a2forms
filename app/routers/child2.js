@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './forms/formbuilder', './routers/router'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +8,8 @@ System.register(['angular2/core', 'angular2/router', './forms/formbuilder', './r
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, formbuilder_1, router_2;
-    var AppComponent;
+    var core_1, router_1;
+    var Child2Component;
     return {
         setters:[
             function (core_1_1) {
@@ -17,33 +17,22 @@ System.register(['angular2/core', 'angular2/router', './forms/formbuilder', './r
             },
             function (router_1_1) {
                 router_1 = router_1_1;
-            },
-            function (formbuilder_1_1) {
-                formbuilder_1 = formbuilder_1_1;
-            },
-            function (router_2_1) {
-                router_2 = router_2_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            Child2Component = (function () {
+                function Child2Component() {
                 }
-                AppComponent = __decorate([
+                Child2Component = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        templateUrl: '../app/app.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
-                    }),
-                    router_1.RouteConfig([
-                        { path: '/formbuilder', name: 'Formbuilder', component: formbuilder_1.FormBuilderComponent },
-                        { path: '/router/...', name: 'Router', component: router_2.RouterComponent }
-                    ]), 
+                        templateUrl: './child2.html',
+                        directives: [router_1.RouterOutlet, router_1.ROUTER_DIRECTIVES]
+                    }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], Child2Component);
+                return Child2Component;
             })();
-            exports_1("AppComponent", AppComponent);
+            exports_1("Child2Component", Child2Component);
         }
     }
 });
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=child2.js.map
