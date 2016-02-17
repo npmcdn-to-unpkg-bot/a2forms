@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './forms/form', './routers/router', './misc/misc', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './forms/form', './routers/router', './misc/misc', 'angular2/http', 'rxjs/add/operator/map', './LoggedInOutlet'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', './forms/form', './routers/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, form_1, router_2, misc_1, http_1;
+    var core_1, router_1, form_1, router_2, misc_1, http_1, LoggedInOutlet_1;
     var AppComponent;
     return {
         setters:[
@@ -30,7 +30,10 @@ System.register(['angular2/core', 'angular2/router', './forms/form', './routers/
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (_1) {}],
+            function (_1) {},
+            function (LoggedInOutlet_1_1) {
+                LoggedInOutlet_1 = LoggedInOutlet_1_1;
+            }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent(_router, _http) {
@@ -38,7 +41,6 @@ System.register(['angular2/core', 'angular2/router', './forms/form', './routers/
                     this._router = _router;
                     this._http = _http;
                     _router.subscribe(function (url) { return _this.currentRouter = url; });
-                    this.code = "dsgdgs";
                 }
                 AppComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -50,12 +52,12 @@ System.register(['angular2/core', 'angular2/router', './forms/form', './routers/
                     core_1.Component({
                         selector: 'my-app',
                         templateUrl: '../app/app.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_1.ROUTER_DIRECTIVES, LoggedInOutlet_1.LoggedInRouterOutlet]
                     }),
                     router_1.RouteConfig([
+                        { path: '/misc/...', name: 'Misc', component: misc_1.MiscComponent },
                         { path: '/forms/...', name: 'Forms', component: form_1.FormComponent },
-                        { path: '/router/...', name: 'Router', component: router_2.RouterComponent },
-                        { path: '/misc/...', name: 'Misc', component: misc_1.MiscComponent }
+                        { path: '/router/...', name: 'Router', component: router_2.RouterComponent }
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router, http_1.Http])
                 ], AppComponent);
