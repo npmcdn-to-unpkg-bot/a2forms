@@ -23,8 +23,13 @@
         </div>
       <div class="container-full" style="margin:20px">
           <div class="alert alert-info" role="alert">Current route: {{currentRouter}}<br/></div>                             
-          <div class="row" style="margin:20px">      
-            <router-outlet></router-outlet>
+          <div class="row" style="margin:20px">  
+              <div class="col-md-12">    
+                   <router-outlet></router-outlet>
+              </div>
+              <!--<div class="col-md-6">  
+                  <pre>{{code}}</pre>  
+              </div>-->
           </div>
       </div>
   

@@ -5,12 +5,12 @@
            <li><a [routerLink]="['Child1']" >child1 with routerlink</a></li>
            <li><a [routerLink]="['Child2']" >child2 no params</a></li>
            <li><a [routerLink]="['Child2',{id:123}]" >child2 with params</a></li>
-       </ul>
-    
-    
+       </ul>            
    </div>
     <div class="col-md-8">
         <router-outlet></router-outlet>
+        <br/>
+        <button (click)="goBack()">Back</button>
    </div>
 </div>
 

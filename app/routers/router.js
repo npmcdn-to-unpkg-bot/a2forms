@@ -35,6 +35,12 @@ System.register(['angular2/core', 'angular2/router', './defaultRouter', './child
                 RouterComponent.prototype.gotoChild1 = function () {
                     this._router.navigate(['Child1']);
                 };
+                RouterComponent.prototype.goBack = function () {
+                    this._router.navigateByUrl(this._prevInstruction.urlPath);
+                };
+                RouterComponent.prototype.routerOnActivate = function (next, prev) {
+                    this._prevInstruction = prev;
+                };
                 RouterComponent = __decorate([
                     core_1.Component({
                         selector: 'router',

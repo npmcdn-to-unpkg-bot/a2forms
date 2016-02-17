@@ -1,5 +1,5 @@
 import {Component, Inject} from 'angular2/core'; 
-import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet} from 'angular2/router' 
+import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet, ComponentInstruction} from 'angular2/router' 
 import {DefaultRouterComponent} from './defaultRouter';
 import {Child1Component} from './child1';  
 import {Child2Component} from './child2'; 
@@ -19,11 +19,19 @@ import {Child2Component} from './child2';
 
 
 export class RouterComponent {  
-   
-    constructor(private _router:Router){             
+    _prevInstruction: ComponentInstruction;
+    constructor(private _router:Router){                     
     }
     
     gotoChild1(){        
         this._router.navigate( ['Child1']  );  
+    }
+    
+    goBack(){
+        this._router.navigateByUrl(this._prevInstruction.urlPath);
+    }
+    
+    routerOnActivate(next: ComponentInstruction, prev: ComponentInstruction) {
+        this._prevInstruction = prev;
     }
 }  
