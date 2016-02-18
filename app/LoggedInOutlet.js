@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', 'angular2-jwt/angular2-jwt', 'local-storage/local_storage'], function(exports_1) {
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -16,7 +16,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, router_1;
+    var core_1, router_1, angular2_jwt_1, local_storage_1;
     var LoggedInRouterOutlet;
     return {
         setters:[
@@ -25,12 +25,20 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (angular2_jwt_1_1) {
+                angular2_jwt_1 = angular2_jwt_1_1;
+            },
+            function (local_storage_1_1) {
+                local_storage_1 = local_storage_1_1;
             }],
         execute: function() {
             LoggedInRouterOutlet = (function (_super) {
                 __extends(LoggedInRouterOutlet, _super);
-                function LoggedInRouterOutlet(_elementRef, _loader, _parentRouter, nameAttr) {
+                function LoggedInRouterOutlet(_elementRef, _loader, _parentRouter, nameAttr, _localStorage) {
                     _super.call(this, _elementRef, _loader, _parentRouter, nameAttr);
+                    this._localStorage = _localStorage;
+                    this._jwtHelper = new angular2_jwt_1.JwtHelper();
                     this.parentRouter = _parentRouter;
                     this.publicRoutes = {
                         'forms': true,
@@ -40,9 +48,9 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 LoggedInRouterOutlet.prototype.activate = function (instruction) {
                     var url = instruction.urlPath;
                     if (!this.publicRoutes[url]) {
-                        // todo: redirect to Login, may be there a better way?
-                        //this.parentRouter.navigateByUrl('/login');
-                        alert('not public route');
+                        var token = this._localStorage.getObject('id_token');
+                        if (!angular2_jwt_1.tokenNotExpired(token))
+                            alert('not public route');
                     }
                     return _super.prototype.activate.call(this, instruction);
                 };
@@ -51,9 +59,10 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                         selector: 'router-outlet'
                     }),
                     __param(3, core_1.Attribute('name')), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, router_1.Router, String])
+                    __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, router_1.Router, String, (typeof (_a = typeof local_storage_1.LocalStorage !== 'undefined' && local_storage_1.LocalStorage) === 'function' && _a) || Object])
                 ], LoggedInRouterOutlet);
                 return LoggedInRouterOutlet;
+                var _a;
             })(router_1.RouterOutlet);
             exports_1("LoggedInRouterOutlet", LoggedInRouterOutlet);
         }
