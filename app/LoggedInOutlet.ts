@@ -28,8 +28,8 @@ export class LoggedInRouterOutlet extends RouterOutlet {
     if (!this.publicRoutes[url] ) {
          var token = this._localStorage.getObject('id_token');
 
-         if (!tokenNotExpired(token))
-            alert('not public route')
+        //  if (!tokenNotExpired(token))
+        //     alert('not public route')
     }
     return super.activate(instruction);
   }

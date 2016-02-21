@@ -2,11 +2,14 @@
    <div class="col-md-4">
        <ul style="list-style-type:none">
            <li *ngFor="#item of items">
-              <a (click)="itemSelected(item)"> {{item.displayText}}</a>
+              <a (click)="itemSelected(item)" [title]="item.tooltip"> {{item.displayText}}</a>
            </li>
        </ul>    
    </div>
     <div class="col-md-8">
+        <div #container>
+            
+        </div>
         <router-outlet></router-outlet>
    </div>
 </div>

@@ -19,6 +19,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 router_1 = router_1_1;
             }],
         execute: function() {
+            //import {InputReqComponent} from '../components/input-req';
             DefaultMiscComponent = (function () {
                 function DefaultMiscComponent(_router) {
                     this._router = _router;

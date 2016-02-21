@@ -27,11 +27,19 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
             function (_1) {}],
         execute: function() {
             MiscComponent = (function () {
-                function MiscComponent(_http) {
+                function MiscComponent(_http, dynamicComponentLoader, _elementRef) {
                     this._http = _http;
+                    this._elementRef = _elementRef;
+                    this._dynamicComponentLoader = dynamicComponentLoader;
                 }
+                MiscComponent.prototype.loadComponent = function (item, m) {
+                    var component = System.import(item.component);
+                    this._dynamicComponentLoader.loadIntoLocation(m[item.component], this._elementRef, 'container');
+                };
                 MiscComponent.prototype.itemSelected = function (item) {
-                    alert(item.displayText);
+                    var _this = this;
+                    //alert(item.displayText);
+                    System.import(item.path).then(function (m) { return _this.loadComponent(item, m); });
                 };
                 MiscComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -48,7 +56,7 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
                     router_1.RouteConfig([
                         { path: '/', name: 'DefaultMisc', component: defaultMisc_1.DefaultMiscComponent, useAsDefault: true },
                     ]), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [http_1.Http, core_1.DynamicComponentLoader, core_1.ElementRef])
                 ], MiscComponent);
                 return MiscComponent;
             })();

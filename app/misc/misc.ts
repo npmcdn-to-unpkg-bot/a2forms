@@ -1,4 +1,4 @@
-import {Component, Inject} from 'angular2/core'; 
+import {Component, Inject, View, DynamicComponentLoader, ElementRef} from 'angular2/core'; 
 import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet} from 'angular2/router' 
 import {DefaultMiscComponent} from './defaultMisc';
 import {Http} from 'angular2/http';
@@ -18,12 +18,19 @@ import 'rxjs/add/operator/map';
 
 export class MiscComponent {  
     items:Array<any>;
-    constructor(private _http:Http){
-      
-    }             
+     _dynamicComponentLoader: DynamicComponentLoader;   
+      constructor(private _http:Http, dynamicComponentLoader: DynamicComponentLoader, 
+                    private _elementRef: ElementRef) {     
+          this._dynamicComponentLoader = dynamicComponentLoader;                  
+      }               
     
+    loadComponent(item, m){
+        var component = System.import(item.component);
+        this._dynamicComponentLoader.loadIntoLocation(m[item.component], this._elementRef, 'container')
+    }
     itemSelected(item){
-        alert(item.displayText);
+        //alert(item.displayText);
+        System.import(item.path).then(m=>this.loadComponent(item, m));
     }
     ngOnInit(){
           this._http.get('./app/data.json')      

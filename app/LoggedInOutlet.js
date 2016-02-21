@@ -49,8 +49,6 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt/angular2-jwt'
                     var url = instruction.urlPath;
                     if (!this.publicRoutes[url]) {
                         var token = this._localStorage.getObject('id_token');
-                        if (!angular2_jwt_1.tokenNotExpired(token))
-                            alert('not public route');
                     }
                     return _super.prototype.activate.call(this, instruction);
                 };
