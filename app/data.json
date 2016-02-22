@@ -1,11 +1,18 @@
 {
-    "items":[
-        {"displayText": "DynamicComponentLoader", "tooltip":"DynamicComponentLoader"},
-        {"displayText": "ChangeDetectionStrategy", "tooltip":"ChangeDetectionStrategy"},
+    "items": [
         {
-            "displayText": "Directive(input required)", 
-            "tooltip":"Directive(input required)", 
-            "path":"../app//components/input-req.js", 
-            "component":"InputReqComponent"}
+            "displayText": "DynamicComponentLoader",
+            "tooltip": "DynamicComponentLoader"
+        },
+        {
+            "displayText": "ChangeDetectionStrategy",
+            "tooltip": "ChangeDetectionStrategy"
+        },
+        {
+            "displayText": "Directive(input required)",
+            "tooltip": "Directive(input required)",
+            "path": "../app//components/input-req.js",
+            "component": "InputReqComponent"
+        }
     ]
 }

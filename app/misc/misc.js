@@ -38,8 +38,7 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
                 };
                 MiscComponent.prototype.itemSelected = function (item) {
                     var _this = this;
-                    //alert(item.displayText);
-                    System.import(item.path).then(function (m) { return _this.loadComponent(item, m); });
+                    System.import(item.path).then(function (m) { return _this.loadComponent(item, m); }, console.error.bind(console));
                 };
                 MiscComponent.prototype.ngOnInit = function () {
                     var _this = this;

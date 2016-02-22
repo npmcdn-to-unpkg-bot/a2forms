@@ -10,13 +10,13 @@ import {LoggedInRouterOutlet} from './LoggedInOutlet';
 @Component({
     selector: 'my-app',
     templateUrl: '../app/app.html',
-    directives:[ROUTER_DIRECTIVES, LoggedInRouterOutlet]
+    directives: [ROUTER_DIRECTIVES, LoggedInRouterOutlet]
 })
 
 @RouteConfig([
-  { path:'/misc/...', name: 'Misc',component:MiscComponent},
-  { path:'/forms/...', name: 'Forms',component:FormComponent},   
-  { path:'/router/...', name: 'Router',component:RouterComponent}  
+    { path: '/misc/...', name: 'Misc', component: MiscComponent },
+    { path: '/forms/...', name: 'Forms', component: FormComponent },
+    { path: '/router/...', name: 'Router', component: RouterComponent }
 ])
 // @RouteConfig([
 //   new AsyncRoute({ path:'/forms/...', name: 'Forms', loader:()=>Promise.resolve(FormComponent)}),   
@@ -26,13 +26,13 @@ import {LoggedInRouterOutlet} from './LoggedInOutlet';
 export class AppComponent {
     currentRouter: string;
     code: string;
-    constructor(private _router: Router, private _http: Http){
-        _router.subscribe((url) => this.currentRouter = url);        
+    constructor(private _router: Router, private _http: Http) {
+        _router.subscribe((url) => this.currentRouter = url);
     }
-    
-     ngOnInit(){
-          this._http.get('./app/app.ts')      
-               .map(res => res.text())
-               .subscribe(data => this.code = data);
+
+    ngOnInit() {
+        this._http.get('./app/app.ts')
+            .map(res => res.text())
+            .subscribe(data => this.code = data);
     }
- }
+}

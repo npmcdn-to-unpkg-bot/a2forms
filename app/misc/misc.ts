@@ -28,9 +28,8 @@ export class MiscComponent {
         var component = System.import(item.component);
         this._dynamicComponentLoader.loadIntoLocation(m[item.component], this._elementRef, 'container')
     }
-    itemSelected(item){
-        //alert(item.displayText);
-        System.import(item.path).then(m=>this.loadComponent(item, m));
+    itemSelected(item){        
+        System.import(item.path).then(m=>this.loadComponent(item, m),console.error.bind(console));
     }
     ngOnInit(){
           this._http.get('./app/data.json')      
