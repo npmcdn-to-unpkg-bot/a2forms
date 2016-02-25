@@ -6,12 +6,14 @@
         },
         {
             "displayText": "ChangeDetectionStrategy",
-            "tooltip": "ChangeDetectionStrategy"
+            "tooltip": "ChangeDetectionStrategy",
+            "path": "../app/components/changeDetection.js",
+            "component":"ChangeDetectionComponent"
         },
         {
             "displayText": "Directive(input required)",
             "tooltip": "Directive(input required)",
-            "path": "../app//components/input-req.js",
+            "path": "../app/components/input-req.js",
             "component": "InputReqComponent"
         }
     ]

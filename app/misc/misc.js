@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', '../components/changeDetection', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +8,8 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, defaultMisc_1, http_1;
-    var MiscComponent;
+    var core_1, router_1, changeDetection_1, http_1;
+    var ChildComponent, MiscComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -18,23 +18,37 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (defaultMisc_1_1) {
-                defaultMisc_1 = defaultMisc_1_1;
+            function (changeDetection_1_1) {
+                changeDetection_1 = changeDetection_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
             },
             function (_1) {}],
         execute: function() {
+            ChildComponent = (function () {
+                function ChildComponent() {
+                }
+                ChildComponent = __decorate([
+                    core_1.Component({
+                        selector: 'dynamic-component',
+                        template: 'Child'
+                    }), 
+                    __metadata('design:paramtypes', [])
+                ], ChildComponent);
+                return ChildComponent;
+            })();
             MiscComponent = (function () {
-                function MiscComponent(_http, dynamicComponentLoader, _elementRef) {
+                function MiscComponent(_http, dynamicComponentLoader, _elementRef, injector) {
                     this._http = _http;
                     this._elementRef = _elementRef;
+                    this.injector = injector;
                     this._dynamicComponentLoader = dynamicComponentLoader;
                 }
                 MiscComponent.prototype.loadComponent = function (item, m) {
                     var component = System.import(item.component);
                     this._dynamicComponentLoader.loadIntoLocation(m[item.component], this._elementRef, 'container');
+                    //this._dynamicComponentLoader.loadAsRoot(m[item.component],'#child', this.injector)
                 };
                 MiscComponent.prototype.itemSelected = function (item) {
                     var _this = this;
@@ -50,12 +64,12 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
                     core_1.Component({
                         selector: 'router',
                         templateUrl: '../app/misc/misc.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet]
+                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, ChildComponent]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', name: 'DefaultMisc', component: defaultMisc_1.DefaultMiscComponent, useAsDefault: true },
+                        { path: '/', name: 'DefaultMisc', component: changeDetection_1.ChangeDetectionComponent, useAsDefault: true },
                     ]), 
-                    __metadata('design:paramtypes', [http_1.Http, core_1.DynamicComponentLoader, core_1.ElementRef])
+                    __metadata('design:paramtypes', [http_1.Http, core_1.DynamicComponentLoader, core_1.ElementRef, core_1.Injector])
                 ], MiscComponent);
                 return MiscComponent;
             })();
