@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../components/changeDetection', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/router', '../components/changeDetect
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, changeDetection_1, http_1;
+    var core_1, router_1, defaultMisc_1, http_1;
     var ChildComponent, MiscComponent;
     return {
         setters:[
@@ -18,8 +18,8 @@ System.register(['angular2/core', 'angular2/router', '../components/changeDetect
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (changeDetection_1_1) {
-                changeDetection_1 = changeDetection_1_1;
+            function (defaultMisc_1_1) {
+                defaultMisc_1 = defaultMisc_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -67,7 +67,7 @@ System.register(['angular2/core', 'angular2/router', '../components/changeDetect
                         directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, ChildComponent]
                     }),
                     router_1.RouteConfig([
-                        { path: '/', name: 'DefaultMisc', component: changeDetection_1.ChangeDetectionComponent, useAsDefault: true },
+                        { path: '/', name: 'DefaultMisc', component: defaultMisc_1.DefaultMiscComponent, useAsDefault: true },
                     ]), 
                     __metadata('design:paramtypes', [http_1.Http, core_1.DynamicComponentLoader, core_1.ElementRef, core_1.Injector])
                 ], MiscComponent);

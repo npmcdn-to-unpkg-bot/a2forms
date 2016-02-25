@@ -16,5 +16,12 @@
             "path": "../app/components/input-req.js",
             "component": "InputReqComponent"
         }
+        ,
+        {
+            "displayText": "DynamicClassComponent",
+            "tooltip": "DynamicClassComponent",
+            "path": "../app/components/dynamicClass.js",
+            "component": "DynamicClassComponent"
+        }
     ]
 }

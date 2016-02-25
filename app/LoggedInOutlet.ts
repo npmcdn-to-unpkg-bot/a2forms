@@ -1,10 +1,11 @@
 import {Directive, Attribute, ElementRef, DynamicComponentLoader} from 'angular2/core';
 import {Router, RouterOutlet, ComponentInstruction} from 'angular2/router';
 import {tokenNotExpired, JwtHelper} from 'angular2-jwt/angular2-jwt';
-import {LocalStorage} from 'local-storage/local_storage';
+import {LOCAL_STORAGE_PROVIDERS, LocalStorage} from 'local-storage/local_storage';
 
 @Directive({
-    selector: 'router-outlet'
+    selector: 'router-outlet',
+    providers:[LocalStorage]
 })
 export class LoggedInRouterOutlet extends RouterOutlet {
     publicRoutes: any;

@@ -54,7 +54,8 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt/angular2-jwt'
                 };
                 LoggedInRouterOutlet = __decorate([
                     core_1.Directive({
-                        selector: 'router-outlet'
+                        selector: 'router-outlet',
+                        providers: [local_storage_1.LocalStorage]
                     }),
                     __param(3, core_1.Attribute('name')), 
                     __metadata('design:paramtypes', [core_1.ElementRef, core_1.DynamicComponentLoader, router_1.Router, String, (typeof (_a = typeof local_storage_1.LocalStorage !== 'undefined' && local_storage_1.LocalStorage) === 'function' && _a) || Object])

@@ -19,7 +19,7 @@ class ChildComponent {
 }) 
 
 @RouteConfig([
-  { path: '/',name:'DefaultMisc', component: ChangeDetectionComponent, useAsDefault:true },
+  { path: '/',name:'DefaultMisc', component: DefaultMiscComponent, useAsDefault:true },
   
 ])
 

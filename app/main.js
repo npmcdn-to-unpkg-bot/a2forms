@@ -21,7 +21,7 @@ System.register(['angular2/platform/browser', './app', 'angular2/http', 'angular
                 local_storage_1 = local_storage_1_1;
             }],
         execute: function() {
-            browser_1.bootstrap(app_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, angular2_jwt_1.AuthHttp, local_storage_1.LocalStorage]);
+            browser_1.bootstrap(app_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, local_storage_1.LOCAL_STORAGE_PROVIDERS, angular2_jwt_1.AuthHttp, local_storage_1.LocalStorage]);
         }
     }
 });
