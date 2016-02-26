@@ -23,5 +23,19 @@
             "path": "../app/components/dynamicClass.js",
             "component": "DynamicClassComponent"
         }
+         ,
+        {
+            "displayText": "CheckAllComponent",
+            "tooltip": "CheckAllComponent",
+            "path": "../app/components/checkall.js",
+            "component": "CheckAllComponent"
+        }
+         ,
+        {
+            "displayText": "ParentchilddataComponent",
+            "tooltip": "ParentchilddataComponent",
+            "path": "../app/components/parentchildData.js",
+            "component": "ParentComponent"
+        }
     ]
 }

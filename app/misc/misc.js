@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './defaultMisc', '../components/parentchildData', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,8 +8,8 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, defaultMisc_1, http_1;
-    var ChildComponent, MiscComponent;
+    var core_1, router_1, defaultMisc_1, parentchildData_1, http_1;
+    var Child1Component, MiscComponent;
     return {
         setters:[
             function (core_1_1) {
@@ -21,22 +21,25 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
             function (defaultMisc_1_1) {
                 defaultMisc_1 = defaultMisc_1_1;
             },
+            function (parentchildData_1_1) {
+                parentchildData_1 = parentchildData_1_1;
+            },
             function (http_1_1) {
                 http_1 = http_1_1;
             },
             function (_1) {}],
         execute: function() {
-            ChildComponent = (function () {
-                function ChildComponent() {
+            Child1Component = (function () {
+                function Child1Component() {
                 }
-                ChildComponent = __decorate([
+                Child1Component = __decorate([
                     core_1.Component({
                         selector: 'dynamic-component',
                         template: 'Child'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], ChildComponent);
-                return ChildComponent;
+                ], Child1Component);
+                return Child1Component;
             })();
             MiscComponent = (function () {
                 function MiscComponent(_http, dynamicComponentLoader, _elementRef, injector) {
@@ -64,7 +67,7 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', 'angular2/
                     core_1.Component({
                         selector: 'router',
                         templateUrl: '../app/misc/misc.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, ChildComponent]
+                        directives: [router_1.ROUTER_DIRECTIVES, router_1.RouterOutlet, Child1Component, parentchildData_1.ParentComponent]
                     }),
                     router_1.RouteConfig([
                         { path: '/', name: 'DefaultMisc', component: defaultMisc_1.DefaultMiscComponent, useAsDefault: true },

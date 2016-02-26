@@ -1,7 +1,7 @@
 import {Component, Inject, View, DynamicComponentLoader, ElementRef, Injector} from 'angular2/core'; 
 import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet} from 'angular2/router' 
 import {DefaultMiscComponent} from './defaultMisc';
-import {ChangeDetectionComponent} from '../components/changeDetection';
+import {ParentComponent, ChildComponent} from '../components/parentchildData';
 import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
@@ -9,13 +9,13 @@ import 'rxjs/add/operator/map';
   selector: 'dynamic-component',
   template: 'Child'
 })
-class ChildComponent {
+class Child1Component {
 }
 
 @Component({ 
     selector: 'router', 
     templateUrl:'../app/misc/misc.html', 
-    directives:[ROUTER_DIRECTIVES, RouterOutlet, ChildComponent] 
+    directives:[ROUTER_DIRECTIVES, RouterOutlet, Child1Component, ParentComponent] 
 }) 
 
 @RouteConfig([
