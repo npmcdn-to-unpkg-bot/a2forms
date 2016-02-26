@@ -2,6 +2,7 @@ import {Component, Inject, View, DynamicComponentLoader, ElementRef, Injector} f
 import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet} from 'angular2/router' 
 import {DefaultMiscComponent} from './defaultMisc';
 import {ParentComponent, ChildComponent} from '../components/parentchildData';
+import {ObjectPropComponent, KeysPipe} from '../components/ngForObjectProperties';
 import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
 
