@@ -44,5 +44,12 @@
             "path": "../app/components/ngForObjectProperties.js",
             "component": "ObjectPropComponent"
         }
+        ,
+        {
+            "displayText": "ngChanges",
+            "tooltip": "displays ngChanges",
+            "path": "../app/components/ngChanges.js",
+            "component": "NgChangesComponent"
+        }
     ]
 }

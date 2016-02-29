@@ -1,4 +1,4 @@
-import {Component, Input, Output, ChangeDetectionStrategy,EventEmitter } from 'angular2/core';
+import {Component, Input, Output, ChangeDetectionStrategy,EventEmitter, SimpleChange } from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx'; //import everything
 import {Control} from 'angular2/common';
@@ -10,7 +10,7 @@ import {Control} from 'angular2/common';
     template: `<div class="well">
     <form (ngSubmit)="onSubmit()" #testform="ngForm">
         {{name}}
-        <textarea #textarea [(ngModel)]="childvar" (ngModelChange)="childvarChange.emit($event)" ></textarea>        
+        <textarea #textarea [(ngModel)]="childvar" (ngModelChange)="childvarChange.emit($event)" ></textarea>              
     </form>
     </div>
          `            
@@ -18,10 +18,16 @@ import {Control} from 'angular2/common';
 export class ChildComponent { 
     @Output() childvarChange:EventEmitter<String> = new EventEmitter<String>();
     @Input() childvar:string;
+    displayValue: string = 'no changes yet!';
    constructor() {}   
+   
    onSubmit(){
        
    }    
+   
+    ngOnChanges(changes: {[propName: string]: SimpleChange}) {      
+    
+  }
 }
 
 

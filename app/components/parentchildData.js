@@ -22,8 +22,11 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1) {
             ChildComponent = (function () {
                 function ChildComponent() {
                     this.childvarChange = new core_1.EventEmitter();
+                    this.displayValue = 'no changes yet!';
                 }
                 ChildComponent.prototype.onSubmit = function () {
+                };
+                ChildComponent.prototype.ngOnChanges = function (changes) {
                 };
                 __decorate([
                     core_1.Output(), 
@@ -36,7 +39,7 @@ System.register(['angular2/core', 'rxjs/Rx'], function(exports_1) {
                 ChildComponent = __decorate([
                     core_1.Component({
                         selector: 'input-test',
-                        template: "<div class=\"well\">\n    <form (ngSubmit)=\"onSubmit()\" #testform=\"ngForm\">\n        {{name}}\n        <textarea #textarea [(ngModel)]=\"childvar\" (ngModelChange)=\"childvarChange.emit($event)\" ></textarea>        \n    </form>\n    </div>\n         "
+                        template: "<div class=\"well\">\n    <form (ngSubmit)=\"onSubmit()\" #testform=\"ngForm\">\n        {{name}}\n        <textarea #textarea [(ngModel)]=\"childvar\" (ngModelChange)=\"childvarChange.emit($event)\" ></textarea>              \n    </form>\n    </div>\n         "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ChildComponent);
