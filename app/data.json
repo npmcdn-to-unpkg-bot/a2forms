@@ -51,5 +51,12 @@
             "path": "../app/components/ngChanges.js",
             "component": "NgChangesComponent"
         }
+         ,
+        {
+            "displayText": "enum to select (dropdown)",
+            "tooltip": "display enum values in dropdown",
+            "path": "../app/components/enum.js",
+            "component": "EnumComponent"
+        }
     ]
 }
