@@ -1,4 +1,6 @@
-System.register(['angular2/core', 'angular2/router', './defaultForm', './formbuilder', './templateform'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './defaultForm', './formbuilder', './templateform', './parentChildForm'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './defaultForm', './formbui
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, defaultForm_1, formbuilder_1, templateform_1;
+    var core_1, router_1, defaultForm_1, formbuilder_1, templateform_1, parentChildForm_1;
     var FormComponent;
     return {
         setters:[
@@ -26,6 +28,9 @@ System.register(['angular2/core', 'angular2/router', './defaultForm', './formbui
             },
             function (templateform_1_1) {
                 templateform_1 = templateform_1_1;
+            },
+            function (parentChildForm_1_1) {
+                parentChildForm_1 = parentChildForm_1_1;
             }],
         execute: function() {
             FormComponent = (function () {
@@ -41,12 +46,13 @@ System.register(['angular2/core', 'angular2/router', './defaultForm', './formbui
                     router_1.RouteConfig([
                         { path: '/', name: 'DefaultForm', component: defaultForm_1.DefaultFormComponent, useAsDefault: true },
                         { path: '/formbuilder', name: 'FormBuilder', component: formbuilder_1.FormBuilderComponent },
+                        { path: '/parentChildForm', name: 'ParentChildForm', component: parentChildForm_1.ParentFormComponent },
                         { path: '/templateForm', name: 'TemplateForm', component: templateform_1.TemplateFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router])
                 ], FormComponent);
                 return FormComponent;
-            })();
+            }());
             exports_1("FormComponent", FormComponent);
         }
     }

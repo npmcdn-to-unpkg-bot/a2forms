@@ -1,4 +1,6 @@
-System.register(['angular2/core', 'angular2/router', 'angular2-jwt/angular2-jwt', 'local-storage/local_storage'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', 'angular2-jwt/angular2-jwt', 'local-storage/local_storage'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -62,7 +64,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2-jwt/angular2-jwt'
                 ], LoggedInRouterOutlet);
                 return LoggedInRouterOutlet;
                 var _a;
-            })(router_1.RouterOutlet);
+            }(router_1.RouterOutlet));
             exports_1("LoggedInRouterOutlet", LoggedInRouterOutlet);
         }
     }

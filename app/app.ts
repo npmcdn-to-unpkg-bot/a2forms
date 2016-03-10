@@ -10,7 +10,7 @@ import {LoggedInRouterOutlet} from './LoggedInOutlet';
 @Component({
     selector: 'my-app',
     templateUrl: '../app/app.html',
-    directives: [ROUTER_DIRECTIVES, LoggedInRouterOutlet]
+    directives: [ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([

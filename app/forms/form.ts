@@ -3,7 +3,7 @@ import {RouteConfig, ROUTER_DIRECTIVES, Location, Router, RouterOutlet} from 'an
 import {DefaultFormComponent} from './defaultForm';
 import {FormBuilderComponent} from './formbuilder';
 import {TemplateFormComponent} from './templateform';
-
+import {ParentFormComponent} from './parentChildForm';
 @Component({
     selector: 'router',
     templateUrl: '../app/forms/form.html',
@@ -13,6 +13,7 @@ import {TemplateFormComponent} from './templateform';
 @RouteConfig([
     { path: '/', name: 'DefaultForm', component: DefaultFormComponent, useAsDefault: true },
     { path: '/formbuilder', name: 'FormBuilder', component: FormBuilderComponent },
+    { path: '/parentChildForm', name: 'ParentChildForm', component: ParentFormComponent },
     { path: '/templateForm', name: 'TemplateForm', component: TemplateFormComponent }
 ])
 

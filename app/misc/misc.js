@@ -1,4 +1,6 @@
-System.register(['angular2/core', 'angular2/router', './defaultMisc', '../components/parentchildData', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1) {
+System.register(['angular2/core', 'angular2/router', './defaultMisc', '../components/parentchildData', 'angular2/http', 'rxjs/add/operator/map'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -40,7 +42,7 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', '../compon
                     __metadata('design:paramtypes', [])
                 ], Child1Component);
                 return Child1Component;
-            })();
+            }());
             MiscComponent = (function () {
                 function MiscComponent(_http, dynamicComponentLoader, _elementRef, injector) {
                     this._http = _http;
@@ -75,7 +77,7 @@ System.register(['angular2/core', 'angular2/router', './defaultMisc', '../compon
                     __metadata('design:paramtypes', [http_1.Http, core_1.DynamicComponentLoader, core_1.ElementRef, core_1.Injector])
                 ], MiscComponent);
                 return MiscComponent;
-            })();
+            }());
             exports_1("MiscComponent", MiscComponent);
         }
     }
