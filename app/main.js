@@ -1,7 +1,7 @@
-System.register(['angular2/platform/browser', './app', 'angular2/http', 'angular2/router', 'angular2-jwt/angular2-jwt', 'local-storage/local_storage'], function(exports_1, context_1) {
+System.register(['angular2/platform/browser', './app', 'angular2/http', 'angular2/router', 'angular2-jwt/angular2-jwt', 'local-storage/local_storage', './LoggedInOutlet'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var browser_1, app_1, http_1, router_1, angular2_jwt_1, local_storage_1;
+    var browser_1, app_1, http_1, router_1, angular2_jwt_1, local_storage_1, LoggedInOutlet_1;
     return {
         setters:[
             function (browser_1_1) {
@@ -21,9 +21,12 @@ System.register(['angular2/platform/browser', './app', 'angular2/http', 'angular
             },
             function (local_storage_1_1) {
                 local_storage_1 = local_storage_1_1;
+            },
+            function (LoggedInOutlet_1_1) {
+                LoggedInOutlet_1 = LoggedInOutlet_1_1;
             }],
         execute: function() {
-            browser_1.bootstrap(app_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, local_storage_1.LOCAL_STORAGE_PROVIDERS, angular2_jwt_1.AuthHttp, local_storage_1.LocalStorage]);
+            browser_1.bootstrap(app_1.AppComponent, [router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, local_storage_1.LOCAL_STORAGE_PROVIDERS, angular2_jwt_1.AuthHttp, local_storage_1.LocalStorage, LoggedInOutlet_1.LoggedInRouterOutlet]);
         }
     }
 });

@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, Router, AsyncRoute} from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, Router, AsyncRoute, RouterLink} from 'angular2/router';
 import {FormComponent} from './forms/form';
 import {RouterComponent} from './routers/router';
 import {MiscComponent} from './misc/misc';
@@ -10,7 +10,7 @@ import {LoggedInRouterOutlet} from './LoggedInOutlet';
 @Component({
     selector: 'my-app',
     templateUrl: '../app/app.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [LoggedInRouterOutlet,RouterLink]
 })
 
 @RouteConfig([

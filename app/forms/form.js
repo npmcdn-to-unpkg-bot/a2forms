@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './defaultForm', './formbuilder', './templateform', './parentChildForm'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './defaultForm', './formbuilder', './ngFormStuff', './ngFormModelStuff', './templateform', './parentChildForm'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './defaultForm', './formbui
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, defaultForm_1, formbuilder_1, templateform_1, parentChildForm_1;
+    var core_1, router_1, defaultForm_1, formbuilder_1, ngFormStuff_1, ngFormModelStuff_1, templateform_1, parentChildForm_1;
     var FormComponent;
     return {
         setters:[
@@ -25,6 +25,12 @@ System.register(['angular2/core', 'angular2/router', './defaultForm', './formbui
             },
             function (formbuilder_1_1) {
                 formbuilder_1 = formbuilder_1_1;
+            },
+            function (ngFormStuff_1_1) {
+                ngFormStuff_1 = ngFormStuff_1_1;
+            },
+            function (ngFormModelStuff_1_1) {
+                ngFormModelStuff_1 = ngFormModelStuff_1_1;
             },
             function (templateform_1_1) {
                 templateform_1 = templateform_1_1;
@@ -47,6 +53,8 @@ System.register(['angular2/core', 'angular2/router', './defaultForm', './formbui
                         { path: '/', name: 'DefaultForm', component: defaultForm_1.DefaultFormComponent, useAsDefault: true },
                         { path: '/formbuilder', name: 'FormBuilder', component: formbuilder_1.FormBuilderComponent },
                         { path: '/parentChildForm', name: 'ParentChildForm', component: parentChildForm_1.ParentFormComponent },
+                        { path: '/ngStuff', name: 'NgFormStuffComponent', component: ngFormStuff_1.NgFormStuffComponent },
+                        { path: '/ngFormModelStuff', name: 'NgFormModelStuffComponent', component: ngFormModelStuff_1.NgFormModelStuffComponent },
                         { path: '/templateForm', name: 'TemplateForm', component: templateform_1.TemplateFormComponent }
                     ]), 
                     __metadata('design:paramtypes', [router_1.Router])
