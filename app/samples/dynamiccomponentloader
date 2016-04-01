@@ -1,0 +1,124 @@
+index.html
+------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RxJSCraft</title>
+    <script src="https://npmcdn.com/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="https://npmcdn.com/systemjs@0.19.24/dist/system.js"></script>
+    <script src="https://npmcdn.com/typescript@1.8.9/lib/typescript.js"></script>
+    </head>
+<body>
+
+<app></app>
+
+
+<script>
+    SystemJS.config({
+        transpiler: "typescript",
+        typescriptOptions: {
+            emitDecoratorMetadata: true
+        },
+        map:{
+            rxjs: 'https://npmcdn.com/rxjs',
+            angular2: 'https://npmcdn.com/angular2'
+        },
+        packages: {
+            "src": {
+                "main": "main",
+                "defaultExtension": "ts"
+            }
+        }
+    });
+    System.import('src');
+</script>
+</body>
+</html>
+--------------------
+app.ts
+import {Component, DynamicComponentLoader, ElementRef, Injector} from 'angular2/core'
+import {Observable} from 'rxjs/Observable';
+import {Subject} from 'rxjs/Subject';
+import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/operator/switchMap';
+
+
+@Component({
+    selector: 'app',
+    template: `
+    <div>
+      <button (click)="click$.next('person')">Add a Person</button>
+      <button (click)="click$.next('car')">Add a Car</button>
+      
+      <div #loadTarget></div>
+    </div>
+  `
+})
+export class App {
+    click$ = new Subject();
+
+    constructor(
+        private _loader:DynamicComponentLoader,
+        private _ref:ElementRef,
+        private injector:Injector
+    ) {
+        const loadComp = comp => Observable
+            .fromPromise(
+                this._loader.loadIntoLocation(
+                    //the injector looks up the component by string
+                    this.injector.get(comp),
+                    this._ref,
+                    'loadTarget'
+                )
+            );
+
+        this.click$
+            //pass the 'string' from the click to the loadComp
+            .switchMap(compName => loadComp(compName))
+            .subscribe(comp => comp.instance.id = Math.random());
+    }
+}
+--------------------------------
+car.ts
+import {Component, Input} from 'angular2/core';
+
+@Component({
+    selector: 'car',
+    template: `
+        <style>div{border: 2px dashed red}</style>
+        <div>Car's id: {{id}}</div>
+    `,
+})
+export class Car {
+    @Input() id;
+}
+----------------------------
+main.ts
+
+import {bootstrap} from 'angular2/platform/browser';
+import {provide} from 'angular2/core';
+import {Person} from './person';
+import {Car} from './car';
+import {App} from './app';
+
+bootstrap(App, [
+    provide('person', {useValue: Person}),
+    provide('car', {useValue: Car})
+])
+    .catch(console.log.bind(console));
+------------------------
+person.ts
+import {Component, Input} from 'angular2/core';
+
+@Component({
+    selector: 'person',
+    template: `
+        <style>div{border: 2px solid blue}</style>
+        <div>My id: {{id}}</div>
+    `,
+})
+export class Person {
+    @Input() id;
+}
